@@ -151,6 +151,20 @@ exist to mean anything:
 | 11 | **Cards** | Heaviest external-dependency lift (processor integration, physical logistics). Least differentiated for an MVP. |
 | 12 | **Rewards** | Pure value-add, no dependency on anything. Last on purpose. |
 
+> **Note — the Funding screen has to be built from nothing (frontend).**
+> Funding is the first module with no frontend to grow from: there is no
+> `src/features/funding/` at all, where every other unbuilt module (bills,
+> cards, loans, savings, rewards) at least has a stub screen already routed.
+> Its API contract is pinned ahead of the backend in
+> [`frontend/src/api/funding.js`](frontend/src/api/funding.js) as five
+> `pendingEndpoint` stubs — create/fetch a virtual account, create a
+> checkout, list deposits, look one up — so the screen's data needs are
+> already known. Two surfaces to build: a **Fund Wallet** entry point, which
+> `QuickActions` is currently missing (it offers only Send · Airtime · Bills
+> · Savings), and a **deposit history** view. Keep the `pendingEndpoint`
+> wrappers in place until the backend lands — per §7, no mock data in the
+> frontend.
+
 ---
 
 ## 7. Next session — start here
