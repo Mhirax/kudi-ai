@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.6
 # Multi-stage production Dockerfile — Rust core banking engines
-FROM rust:1.78-slim AS builder
+FROM rust:1.99-slim AS builder
 WORKDIR /app
 COPY Cargo.toml ./
 COPY rust ./rust
